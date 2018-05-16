@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar color="padrao">
+    <ion-title>
+      {{key ? 'Renomear' : 'Adicionar'}} Vistoria
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list>
+
+    <ion-item>
+      <ion-label color="primary" fixed>Data</ion-label>
+      <ion-input #data type="text" name="data" value="{{model.criacao | date: 'dd/MM/yyyy'}}" [readonly]="true"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary" fixed>Descrição</ion-label>
+      <ion-input #descricao type="text" name="descricao" [(ngModel)]="model.descricao" placeholder="Informe uma breve descrição"></ion-input>
+    </ion-item>
+
+  </ion-list>
+
+  <button ion-button block (click)="save()">Salvar</button>
+
+</ion-content>

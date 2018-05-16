@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-navbar color="padrao">
+    <ion-title>TERRACAP - Fiscalização</ion-title>
+    <ion-buttons end>
+      <!--
+      <button ion-button icon-only (click)="add()">
+        <ion-icon name="md-add"></ion-icon>
+      </button>
+      -->
+      <button ion-button icon-only (click)="opcoesActionSheet()">
+        <ion-icon name="md-more"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list *ngIf="pastas?.length > 0">
+    <ion-item-sliding *ngFor="let item of pastas; let i=index">
+      <ion-item (click)="itemSelected(item)">
+        <h2>
+          {{item.pasta.descricao}}
+        </h2>
+        <p>
+          {{item.pasta.criacao | date: 'dd/MM/yyyy - H:mm'}}
+        </p>
+        <p item-end>
+          {{item.pasta.arquivos.length}} {{item.pasta.arquivos.length > 1 ? 'fotos' : 'foto'}}
+        </p>
+      </ion-item>
+      <ion-item-options side="right">
+        <button id="btnSlide" ion-button color="primary" (click)="editPasta(item)" large padding-left padding-right>
+          <ion-icon name="create"></ion-icon>
+        </button>
+        <button id="btnSlide" ion-button color="danger" (click)="confirmRemovePasta(item);" large padding-left padding-right>
+          <ion-icon name="trash"></ion-icon>
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+  <ion-list *ngIf="pastas?.length == 0">
+    <ion-item>
+      <p padding-top>
+        Nenhum item cadastrado
+      </p>
+    </ion-item>
+  </ion-list>
+
+  <ion-fab right bottom margin-right margin-bottom>
+    <button ion-fab color="light" (click)="addPasta()">
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-fab>
+
+</ion-content>

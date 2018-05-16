@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-navbar color="padrao">
+    <ion-title>{{editMode ? 'Editar detalhes da Foto' : 'Nova Foto'}}</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="save()">
+        <ion-icon name="md-checkmark"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+  <div text-center *ngIf="editMode" margin-bottom>
+    <ion-item>
+      <ion-label color="primary" fixed>Data Criação</ion-label>
+      <ion-input type="text" name="data" value="{{model.criacao | date: 'dd/MM/yyyy - H:mm'}}" disabled></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary" fixed>Lat, Long</ion-label>
+      <ion-input type="text" name="latlong" value="{{model.lat}}, {{model.long}}" disabled></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary" fixed>Local</ion-label>
+      <ion-input type="text" name="latlong" value="{{descricaoLocal}}" disabled></ion-input>
+    </ion-item>
+  </div>
+
+  <ion-item>
+    <ion-input type="text" name="descricao" [(ngModel)]="model.descricao" placeholder="Informe uma descrição (opcional)"></ion-input>
+  </ion-item>
+
+  <div padding>
+    <img [src]="base64Image" width="100%" />
+  </div>
+
+  <div text-center *ngIf="editMode">
+    <button ion-button color="danger" round outline (click)="confirmRemove()">Excluir</button>
+  </div>
+
+</ion-content>

@@ -84,8 +84,8 @@
       "cordova-plugin-nativegeocoder": {}
     },
     "platforms": [
-      "android",
-      "browser"
+      "browser",
+      "android"
     ]
   }
 }

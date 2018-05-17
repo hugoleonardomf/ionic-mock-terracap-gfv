@@ -51,7 +51,8 @@ export class ArquivosPage {
   takePicture() {
     let arquivo = new Arquivo();
     //current position
-    this.geolocation.getCurrentPosition().then((resp) => {
+    let options = { timeout: 10000, enableHighAccuracy: true, maximumAge: 3600 };
+    this.geolocation.getCurrentPosition(options).then((resp) => {
       arquivo.lat = resp.coords.latitude + '';
       arquivo.long = resp.coords.longitude + '';
     }).catch((error) => { console.log('Error getting location', error); });

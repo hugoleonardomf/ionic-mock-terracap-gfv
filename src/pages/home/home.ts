@@ -100,9 +100,9 @@ export class HomePage {
           }
         },
         {
-          text: 'Consultar Vistorias',
+          text: 'Consultar Vistoria',
           handler: () => {
-            this.showAlert('Aviso', 'Para acessar esta funcionalidade é necessário estar conectado à internet para acessar a Rede Terracap.');
+            this.openConsultaPage();
           }
         },
         {
@@ -122,6 +122,10 @@ export class HomePage {
     });
 
     actionSheet.present();
+  }
+
+  openConsultaPage() {
+    this.showAlert('Aviso', 'Para acessar esta funcionalidade é necessário estar conectado à internet para acessar a Rede Terracap.');
   }
 
   showAlert(titulo: string, texto: string) {

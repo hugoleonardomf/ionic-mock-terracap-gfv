@@ -88,8 +88,8 @@
         <string>We want your location! Best regards NSA</string>
     </edit-config>
     <allow-navigation href="http://10.50.16.121:8100" />
-    <engine name="android" spec="6.3.0" />
     <engine name="browser" spec="5.0.3" />
+    <engine name="android" spec="6.3.0" />
     <plugin name="cordova-plugin-camera" spec="^4.0.1" />
     <plugin name="cordova-plugin-file-transfer" spec="^1.7.1" />
     <plugin name="cordova-plugin-filepath" spec="^1.1.0" />

@@ -16,6 +16,7 @@ export class ConfirmaImagemPage {
   pastaList: PastaList;
   base64Image: string;
   editMode: boolean = false;
+  resultLocal: NativeGeocoderReverseResult;
   descricaoLocal: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private fiscalProvider: FiscalProvider, private datepipe: DatePipe, private alertCtrl: AlertController, private nativeGeocoder: NativeGeocoder) {
@@ -25,16 +26,19 @@ export class ConfirmaImagemPage {
     if (this.model.id) {
       this.editMode = true;
 
-      //provisorio
-      this.nativeGeocoder.reverseGeocode(parseInt(this.model.lat), parseInt(this.model.long))
+      //retorna descrição do local pela lat, long
+      //this.nativeGeocoder.reverseGeocode(-15.8154017, -47.9863917) //guara
+      console.log(Number(this.model.lat));
+      console.log(Number(this.model.long));
+      this.nativeGeocoder.reverseGeocode(Number(this.model.lat), Number(this.model.long))
         .then((result: NativeGeocoderReverseResult) => {
-          console.log('entrou..');
           console.log(JSON.stringify(result));
-          this.descricaoLocal = result.countryName;
+          this.resultLocal = result[0];
+          this.descricaoLocal = this.resultLocal.thoroughfare + ', ' + this.resultLocal.subLocality + ', ' + this.resultLocal.subAdministrativeArea + ', ' + this.resultLocal.subAdministrativeArea;
         })
         .catch((error: any) => {
           console.log(error);
-          this.descricaoLocal = 'teste erro';
+          this.descricaoLocal = 'Erro ao recuperar Local';
         });
 
     }
@@ -70,7 +74,6 @@ export class ConfirmaImagemPage {
       this.pastaList.pasta.arquivos.push(this.model);
     }
     console.log(this.model);
-
     return this.fiscalProvider.updatePasta(this.pastaList.key, this.pastaList.pasta);
   }
 

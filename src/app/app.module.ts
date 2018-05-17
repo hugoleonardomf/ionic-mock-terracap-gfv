@@ -55,6 +55,7 @@ import { ConfirmaImagemPage } from '../pages/confirma-imagem/confirma-imagem';
     Camera,
     Geolocation,
     NativeGeocoder,
+
     DatePipe,
     FiscalProvider
   ]

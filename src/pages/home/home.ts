@@ -62,14 +62,14 @@ export class HomePage {
         // Removendo do array de items
         var index = this.pastas.indexOf(item);
         this.pastas.splice(index, 1);
-        this.toast.create({ message: 'Item removido com sucesso.', duration: 3000, position: 'botton' }).present();
+        this.toast.create({ message: 'Vistoria excluída com sucesso.', duration: 3000, position: 'bottom' }).present();
       })
   }
 
   confirmRemovePasta(item: PastaList) {
     let alert = this.alertCtrl.create({
       title: 'Deseja excluir ' + item.pasta.descricao + '?',
-      message: 'Todos os arquivos também serão excluídos!',
+      message: 'Todos os arquivos serão excluídos.',
       buttons: [
         {
           text: 'Cancelar',

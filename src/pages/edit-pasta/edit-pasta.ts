@@ -26,11 +26,11 @@ export class EditPastaPage {
   save() {
     this.savePasta()
       .then(() => {
-        this.toast.create({ message: 'Item salvo com sucesso.', duration: 3000, position: 'botton' }).present();
+        this.toast.create({ message: 'Vistoria salva com sucesso.', duration: 3000, position: 'bottom' }).present();
         this.navCtrl.pop();
       })
       .catch(() => {
-        this.toast.create({ message: 'Erro ao salvar o item.', duration: 3000, position: 'botton' }).present();
+        this.toast.create({ message: 'Erro ao salvar a vistoria.', duration: 3000, position: 'bottom' }).present();
       });
   }
 

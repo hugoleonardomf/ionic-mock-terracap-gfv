@@ -4,6 +4,7 @@ import { Camera } from '@ionic-native/camera';
 import { Geolocation } from '@ionic-native/geolocation';
 import { Arquivo, PastaList } from '../../providers/fiscal/fiscal';
 import { ConfirmaImagemPage } from '../confirma-imagem/confirma-imagem';
+import { EditPastaPage } from '../edit-pasta/edit-pasta';
 
 @IonicPage()
 @Component({
@@ -28,6 +29,10 @@ export class ArquivosPage {
 
   ionViewDidEnter() {
     this.sortArquivos();
+  }
+
+  editPasta() {
+    this.navCtrl.push(EditPastaPage, { key: this.pastaList.key, pasta: this.pastaList.pasta });
   }
 
   private loadData() {
@@ -79,16 +84,16 @@ export class ArquivosPage {
 
   opcoesActionSheet() {
     let actionSheet = this.actionSheetCtrl.create({
-      //title: 'O que deseja fazer?',
+      title: 'O que deseja fazer?',
       buttons: [
         {
-          text: 'Adicionar Foto',
+          text: 'Editar dados da Vistoria',
           handler: () => {
-            this.takePicture();
+            this.editPasta();
           }
         },
         {
-          text: 'Sincronizar',
+          text: 'Sincronizar com GFV',
           handler: () => {
             this.preparaSync();
           }

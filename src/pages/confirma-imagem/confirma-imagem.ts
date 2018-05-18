@@ -25,7 +25,6 @@ export class ConfirmaImagemPage {
     this.base64Image = this.model.imagem;
     if (this.model.id) {
       this.editMode = true;
-
       //retorna descrição do local pela lat, long
       //this.nativeGeocoder.reverseGeocode(-15.8154017, -47.9863917) //guara
       console.log(Number(this.model.lat));
@@ -34,13 +33,12 @@ export class ConfirmaImagemPage {
         .then((result: NativeGeocoderReverseResult) => {
           console.log(JSON.stringify(result));
           this.resultLocal = result[0];
-          this.descricaoLocal = this.resultLocal.thoroughfare + ', ' + this.resultLocal.subLocality + ', ' + this.resultLocal.subAdministrativeArea + ', ' + this.resultLocal.subAdministrativeArea;
+          this.descricaoLocal = this.resultLocal.thoroughfare + ', ' + this.resultLocal.subLocality + ', ' + this.resultLocal.subAdministrativeArea + ', ' + this.resultLocal.administrativeArea;
         })
         .catch((error: any) => {
           console.log(error);
           this.descricaoLocal = 'Erro ao recuperar Local';
         });
-
     }
   }
 

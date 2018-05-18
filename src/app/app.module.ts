@@ -12,12 +12,15 @@ import { IonicStorageModule } from '@ionic/storage';
 import { Camera } from '@ionic-native/camera';
 import { Geolocation } from '@ionic-native/geolocation';
 import { NativeGeocoder } from '@ionic-native/native-geocoder';
+import { Network } from '@ionic-native/network';
 import { DatePipe } from '@angular/common';
 
 import { FiscalProvider } from '../providers/fiscal/fiscal';
 import { EditPastaPage } from '../pages/edit-pasta/edit-pasta';
 import { ArquivosPage } from '../pages/arquivos/arquivos';
 import { ConfirmaImagemPage } from '../pages/confirma-imagem/confirma-imagem';
+import { VistoriasPage } from '../pages/vistorias/vistorias';
+import { LoginPage } from '../pages/login/login';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,9 @@ import { ConfirmaImagemPage } from '../pages/confirma-imagem/confirma-imagem';
     HomePage,
     EditPastaPage,
     ArquivosPage,
-    ConfirmaImagemPage
+    ConfirmaImagemPage,
+    VistoriasPage,
+    LoginPage
   ],
   imports: [
     BrowserModule,
@@ -45,7 +50,9 @@ import { ConfirmaImagemPage } from '../pages/confirma-imagem/confirma-imagem';
     HomePage,
     EditPastaPage,
     ArquivosPage,
-    ConfirmaImagemPage
+    ConfirmaImagemPage,
+    VistoriasPage,
+    LoginPage
   ],
   providers: [
     StatusBar,
@@ -55,7 +62,7 @@ import { ConfirmaImagemPage } from '../pages/confirma-imagem/confirma-imagem';
     Camera,
     Geolocation,
     NativeGeocoder,
-
+    Network,
     DatePipe,
     FiscalProvider
   ]

@@ -4,6 +4,7 @@ import { NavController, ToastController, AlertController, ActionSheetController,
 import { FiscalProvider, PastaList } from '../../providers/fiscal/fiscal';
 import { EditPastaPage } from '../edit-pasta/edit-pasta';
 import { ArquivosPage } from '../arquivos/arquivos';
+import { VistoriasPage } from '../vistorias/vistorias';
 
 @Component({
   selector: 'page-home',
@@ -126,6 +127,7 @@ export class HomePage {
 
   openConsultaPage() {
     this.showAlert('Aviso', 'Para acessar esta funcionalidade é necessário estar conectado à internet para acessar a Rede Terracap.');
+    this.navCtrl.push(VistoriasPage);
   }
 
   showAlert(titulo: string, texto: string) {

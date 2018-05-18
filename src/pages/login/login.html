@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar color="padrao">
+    <ion-title>Acesso Restrito</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <form (submit)="doLogin()">
+    <ion-list>
+      <ion-item>
+        <ion-label stacked>Matrícula</ion-label>
+        <ion-input type="text" [(ngModel)]="account.matricula" name="matricula"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Senha</ion-label>
+        <ion-input type="password" [(ngModel)]="account.password" name="password"></ion-input>
+      </ion-item>
+      <div padding>
+        <button ion-button color="primary" block>Acessar</button>
+      </div>
+    </ion-list>
+  </form>
+
+</ion-content>

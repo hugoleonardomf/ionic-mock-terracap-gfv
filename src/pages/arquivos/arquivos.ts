@@ -5,6 +5,7 @@ import { Geolocation } from '@ionic-native/geolocation';
 import { Arquivo, PastaList } from '../../providers/fiscal/fiscal';
 import { ConfirmaImagemPage } from '../confirma-imagem/confirma-imagem';
 import { EditPastaPage } from '../edit-pasta/edit-pasta';
+import { LoginPage } from '../login/login';
 
 @IonicPage()
 @Component({
@@ -138,7 +139,7 @@ export class ArquivosPage {
 
   sync() {
     this.modoSelecao = false;
-    //enviar arquivos
+    this.navCtrl.push(LoginPage);
   }
 
 }

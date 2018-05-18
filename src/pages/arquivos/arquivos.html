@@ -30,9 +30,10 @@
       <p>
         {{item.criacao | date: 'dd/MM/yyyy - H:mm'}}
       </p>
-      <ion-icon name="md-pin" item-end color="secondary" *ngIf="!modoSelecao"></ion-icon>
+      <ion-icon name="md-pin" item-end color="danger" *ngIf="!modoSelecao && item.lat == null"></ion-icon>
+      <ion-icon name="md-pin" item-end color="secondary" *ngIf="!modoSelecao && item.lat != null"></ion-icon>
       <ion-icon name="md-checkmark-circle-outline" item-end color="light" *ngIf="modoSelecao && !item.selecao" (click)="setItemSync(item); $event.stopPropagation();"></ion-icon>
-      <ion-icon name="md-checkmark-circle-outline" item-end color="secondary" *ngIf="modoSelecao && item.selecao" (click)="setItemSync(item); $event.stopPropagation();"></ion-icon>
+      <ion-icon name="md-checkmark-circle-outline" item-end color="primary" *ngIf="modoSelecao && item.selecao" (click)="setItemSync(item); $event.stopPropagation();"></ion-icon>
     </ion-item>
   </ion-list>
 

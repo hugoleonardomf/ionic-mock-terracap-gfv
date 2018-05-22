@@ -26,7 +26,8 @@ export class MyApp {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
-      statusBar.styleDefault();
+      //statusBar.styleDefault(); default, with problem
+      statusBar.styleLightContent(); //alterado
       splashScreen.hide();
 
       // watch network for a connection

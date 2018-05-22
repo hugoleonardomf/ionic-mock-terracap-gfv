@@ -3,7 +3,7 @@
     <name>Terracap</name>
     <description>An awesome Ionic/Cordova app.</description>
     <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
-    <content src="index.html" />
+    <content original-src="index.html" src="http://192.168.15.153:8100" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -88,6 +88,7 @@
         <string>We want your location! Best regards NSA</string>
     </edit-config>
     <allow-navigation href="http://10.50.16.121:8100" />
+    <engine name="android" spec="^6.4.0" />
     <plugin name="cordova-plugin-camera" spec="^4.0.3" />
     <plugin name="cordova-plugin-code-push" spec="^1.11.10" />
     <plugin name="cordova-plugin-device" spec="^2.0.2" />
@@ -107,5 +108,4 @@
     <plugin name="cordova-plugin-zip" spec="^3.1.0" />
     <plugin name="cordova-sqlite-storage" spec="^2.3.1" />
     <plugin name="ionic-plugin-keyboard" spec="^2.2.1" />
-    <engine name="android" spec="~6.4.0" />
 </widget>

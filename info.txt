@@ -1,3 +1,9 @@
+Node version: v6.11.3
+
+Cordova version: 7.0.1
+
+Config.xml file: 
+
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="br.gov.df.terracap.fiscalizacao" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Terracap</name>
@@ -109,3 +115,16 @@
     <plugin name="ionic-plugin-keyboard" spec="^2.2.1" />
     <engine name="android" spec="~6.4.0" />
 </widget>
+
+
+Plugins: 
+
+code-push,cordova-plugin-camera,cordova-plugin-code-push,cordova-plugin-device,cordova-plugin-dialogs,cordova-plugin-file,cordova-plugin-file-transfer,cordova-plugin-filepath,cordova-plugin-geolocation,cordova-plugin-ionic-webview,cordova-plugin-nativegeocoder,cordova-plugin-network-information,cordova-plugin-splashscreen,cordova-plugin-statusbar,cordova-plugin-whitelist,cordova-plugin-zip,cordova-sqlite-storage,ionic-plugin-keyboard
+
+Error retrieving Android platform information: 
+Android SDK is not set up properly. Make sure that the Android SDK 'tools' and 'platform-tools' directories are in the PATH variable. 
+
+Error: cmd: Command failed with exit code 1 Error output:
+'android' n�o � reconhecido como um comando interno
+ou externo, um programa oper�vel ou um arquivo em lotes.
+

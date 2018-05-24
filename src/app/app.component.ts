@@ -8,15 +8,19 @@ import { Network } from '@ionic-native/network';
 import { Subscription } from 'rxjs/Subscription';
 
 import { HomePage } from '../pages/home/home';
-//import { LoginPage } from '../pages/login/login';
+import { LoginPage } from '../pages/login/login';
+import { SincronizarPage } from '../pages/sincronizar/sincronizar';
 
 @Component({
   templateUrl: 'app.html'
 })
+
 export class MyApp {
 
   rootPage: any = HomePage;
   //rootPage: any = LoginPage;
+  //rootPage: any = SincronizarPage;
+
   connected: Subscription;
   disconnected: Subscription;
 

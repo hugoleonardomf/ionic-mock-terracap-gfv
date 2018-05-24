@@ -2,9 +2,6 @@
   <ion-navbar color="padrao">
     <ion-title>TERRACAP - Fiscalização</ion-title>
     <ion-buttons end>
-      <button ion-button icon-only (click)="openConsultaPage()">
-        <ion-icon name="md-search"></ion-icon>
-      </button>
       <button ion-button icon-only (click)="opcoesActionSheet()">
         <ion-icon name="md-more"></ion-icon>
       </button>
@@ -14,6 +11,9 @@
 
 <ion-content>
 
+  <ion-toolbar no-border-top>
+    <ion-searchbar placeholder="Pesquisar" animated="true"></ion-searchbar>
+  </ion-toolbar>
   <ion-list *ngIf="pastas?.length > 0">
     <ion-item-sliding *ngFor="let item of pastas; let i=index">
       <ion-item (click)="itemSelected(item)">

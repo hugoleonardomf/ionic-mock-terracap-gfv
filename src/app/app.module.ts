@@ -20,7 +20,10 @@ import { EditPastaPage } from '../pages/edit-pasta/edit-pasta';
 import { ArquivosPage } from '../pages/arquivos/arquivos';
 import { ConfirmaImagemPage } from '../pages/confirma-imagem/confirma-imagem';
 import { VistoriasPage } from '../pages/vistorias/vistorias';
+import { DenunciasPage } from '../pages/denuncias/denuncias';
 import { LoginPage } from '../pages/login/login';
+import { SincronizarPage } from '../pages/sincronizar/sincronizar';
+import { ChecklistPage } from '../pages/checklist/checklist';
 
 @NgModule({
   declarations: [
@@ -29,8 +32,11 @@ import { LoginPage } from '../pages/login/login';
     EditPastaPage,
     ArquivosPage,
     ConfirmaImagemPage,
+    DenunciasPage,
     VistoriasPage,
-    LoginPage
+    LoginPage,
+    SincronizarPage,
+    ChecklistPage
   ],
   imports: [
     BrowserModule,
@@ -51,8 +57,11 @@ import { LoginPage } from '../pages/login/login';
     EditPastaPage,
     ArquivosPage,
     ConfirmaImagemPage,
+    DenunciasPage,
     VistoriasPage,
-    LoginPage
+    LoginPage,
+    SincronizarPage,
+    ChecklistPage
   ],
   providers: [
     StatusBar,

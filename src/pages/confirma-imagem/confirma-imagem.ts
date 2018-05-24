@@ -83,8 +83,8 @@ export class ConfirmaImagemPage {
 
   confirmRemove() {
     let alert = this.alertCtrl.create({
-      title: 'Deseja excluir?',
-      message: 'Essa ação não poderá ser desfeita!',
+      title: 'Deseja excluir a foto?',
+      message: 'Essa ação não poderá ser desfeita.',
       buttons: [
         {
           text: 'Cancelar',
@@ -94,7 +94,7 @@ export class ConfirmaImagemPage {
           }
         },
         {
-          text: 'Excluir',
+          text: 'OK',
           handler: () => {
             this.remove();
           }

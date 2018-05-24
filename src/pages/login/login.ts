@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController } from 'ionic-angular';
+import { SincronizarPage } from '../sincronizar/sincronizar';
 
 @IonicPage()
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html'
 })
+
 export class LoginPage {
   // The account fields for the login form.
   // If you're using the username field with or without email, make
@@ -18,6 +20,6 @@ export class LoginPage {
   constructor(public navCtrl: NavController) { }
 
   doLogin() {
-    //this.navCtrl.push(MainPage);
+    this.navCtrl.push(SincronizarPage);
   }
 }

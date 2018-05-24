@@ -4,6 +4,7 @@ import { NavController, ToastController, AlertController, ActionSheetController,
 import { FiscalProvider, PastaList } from '../../providers/fiscal/fiscal';
 import { EditPastaPage } from '../edit-pasta/edit-pasta';
 import { ArquivosPage } from '../arquivos/arquivos';
+import { DenunciasPage } from '../denuncias/denuncias';
 import { VistoriasPage } from '../vistorias/vistorias';
 
 @Component({
@@ -63,14 +64,14 @@ export class HomePage {
         // Removendo do array de items
         var index = this.pastas.indexOf(item);
         this.pastas.splice(index, 1);
-        this.toast.create({ message: 'Vistoria excluída com sucesso.', duration: 3000, position: 'bottom' }).present();
+        this.toast.create({ message: 'Item excluído com sucesso.', duration: 3000, position: 'bottom' }).present();
       })
   }
 
   confirmRemovePasta(item: PastaList) {
     let alert = this.alertCtrl.create({
       title: 'Deseja excluir ' + item.pasta.descricao + '?',
-      message: 'Todos os arquivos serão excluídos.',
+      message: 'Todos o conteúdo será excluído.',
       buttons: [
         {
           text: 'Cancelar',
@@ -80,7 +81,7 @@ export class HomePage {
           }
         },
         {
-          text: 'Excluir',
+          text: 'OK',
           handler: () => {
             this.removePasta(item);
           }
@@ -95,15 +96,21 @@ export class HomePage {
       title: 'O que deseja fazer?',
       buttons: [
         {
-          text: 'Adicionar Vistoria',
+          text: 'Criar Vistoria',
           handler: () => {
             this.addPasta();
           }
         },
         {
-          text: 'Consultar Vistoria',
+          text: 'Consultar Vistorias (GFV)',
           handler: () => {
-            this.openConsultaPage();
+            this.openConsultaVistoriasPage();
+          }
+        },
+        {
+          text: 'Consultar Denúncias (Cidadão)',
+          handler: () => {
+            this.openConsultaDenunciasPage();
           }
         },
         {
@@ -125,8 +132,13 @@ export class HomePage {
     actionSheet.present();
   }
 
-  openConsultaPage() {
-    this.showAlert('Aviso', 'Para acessar esta funcionalidade é necessário estar conectado à internet para acessar a Rede Terracap.');
+  openConsultaDenunciasPage() {
+    this.showAlert('Aviso', 'É necessário estar conectado à internet para acessar a Rede Terracap.');
+    this.navCtrl.push(DenunciasPage);
+  }
+
+  openConsultaVistoriasPage() {
+    this.showAlert('Aviso', 'É necessário estar conectado à internet para acessar a Rede Terracap.');
     this.navCtrl.push(VistoriasPage);
   }
 

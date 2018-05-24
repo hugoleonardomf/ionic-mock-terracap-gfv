@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar color="padrao">
+    <ion-title>Sincronizar com GFV</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="opcoesActionSheet()">
+        <ion-icon name="md-more"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list>
+    <button ion-item (click)="itemSelectedDenuncia()" detail-push>
+      <ion-icon item-start name="ios-megaphone-outline"></ion-icon>
+      <h2>A partir de uma Denúncia</h2>
+    </button>
+    <button ion-item (click)="itemSelectedExistente()" detail-push>
+      <ion-icon item-start name="ios-paper-outline"></ion-icon>
+      <h2>Utilizar Vistoria existente</h2>
+    </button>
+    <button ion-item (click)="itemSelectedNova()" detail-push>
+      <ion-icon item-start name="add"></ion-icon>
+      <h2>Criar nova Vistoria</h2>
+    </button>
+  </ion-list>
+
+</ion-content>
+

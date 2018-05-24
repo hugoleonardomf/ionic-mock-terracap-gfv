@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, ToastController, NavParams, LoadingController, Platform, ActionSheetController } from 'ionic-angular';
+import { IonicPage, NavController, ToastController, NavParams, LoadingController, Platform, ActionSheetController, ModalController } from 'ionic-angular';
 import { Camera } from '@ionic-native/camera';
 import { Geolocation } from '@ionic-native/geolocation';
 import { Arquivo, PastaList } from '../../providers/fiscal/fiscal';
 import { ConfirmaImagemPage } from '../confirma-imagem/confirma-imagem';
-import { EditPastaPage } from '../edit-pasta/edit-pasta';
+import { ChecklistPage } from '../checklist/checklist';
 import { LoginPage } from '../login/login';
 
 @IonicPage()
@@ -22,7 +22,7 @@ export class ArquivosPage {
   modoSelecao: boolean;
   qtdSelecao: number;
 
-  constructor(public navCtrl: NavController, private toast: ToastController, public navParams: NavParams, private camera: Camera, public loadingCtrl: LoadingController, public platform: Platform, public actionSheetCtrl: ActionSheetController, private geolocation: Geolocation) {
+  constructor(public navCtrl: NavController, private toast: ToastController, public navParams: NavParams, private camera: Camera, public loadingCtrl: LoadingController, public platform: Platform, public actionSheetCtrl: ActionSheetController, private geolocation: Geolocation, public modalCtrl: ModalController) {
     this.modoSelecao = false;
     this.pastaList = this.navParams.get('pastaList');
     this.loadData();
@@ -32,8 +32,8 @@ export class ArquivosPage {
     this.sortArquivos();
   }
 
-  editPasta() {
-    this.navCtrl.push(EditPastaPage, { key: this.pastaList.key, pasta: this.pastaList.pasta });
+  goChecklist() {
+    this.navCtrl.push(ChecklistPage, { key: this.pastaList.key, pasta: this.pastaList.pasta });
   }
 
   private loadData() {
@@ -88,13 +88,19 @@ export class ArquivosPage {
       title: 'O que deseja fazer?',
       buttons: [
         {
-          text: 'Editar dados da Vistoria',
+          text: 'Adicionar Foto',
           handler: () => {
-            this.editPasta();
+            this.takePicture();
           }
         },
         {
-          text: 'Sincronizar com GFV',
+          text: 'Checklist Vistoria',
+          handler: () => {
+            this.goChecklist();
+          }
+        },
+        {
+          text: 'Sincronizar (GFV)',
           handler: () => {
             this.preparaSync();
           }
@@ -110,6 +116,14 @@ export class ArquivosPage {
     });
 
     actionSheet.present();
+  }
+
+  pressEvent(e, item: Arquivo) {
+    if (!this.modoSelecao) {
+      this.preparaSync();
+      this.setItemSync(item);
+      console.log(item);
+    }
   }
 
   setItemSync(item: Arquivo) {
@@ -134,12 +148,14 @@ export class ArquivosPage {
     for (let i of this.arquivos) {
       i.selecao = false;
     }
-    this.toast.create({ message: 'Selecione os items para sincronizar.', duration: 3000, position: 'bottom' }).present();
+    this.toast.create({ message: 'Selecione os itens para sincronizar.', duration: 3000, position: 'bottom' }).present();
   }
 
   sync() {
     this.modoSelecao = false;
     this.navCtrl.push(LoginPage);
+    //let modal = this.modalCtrl.create(LoginPage);
+    //modal.present();
   }
 
 }

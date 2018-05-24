@@ -1,0 +1,71 @@
+<ion-header>
+  <ion-navbar color="padrao">
+    <ion-title>Checklist Vistoria</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="save()" *ngIf="!syncStatus">
+        <ion-icon name="md-checkmark"></ion-icon>
+      </button>
+      <button ion-button icon-only (click)="sync()" *ngIf="syncStatus">
+        <ion-icon name="md-cloud-upload"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list>
+
+    <ion-item>
+      <ion-label color="primary" stacked>Tipo Documento</ion-label>
+      <ion-input #descricao type="text" name="descricao" placeholder="Informe o tipo de documento"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary" stacked>N° Documento</ion-label>
+      <ion-input #descricao type="text" name="descricao" placeholder="Informe o N° documento"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary" stacked>Classificação</ion-label>
+      <ion-input type="text" name="descricao" placeholder="Informe a classificação da vistoria"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary" stacked>Interessado</ion-label>
+      <ion-input type="text" name="descricao" placeholder="Informe o nome do interessado"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary" stacked>Assunto</ion-label>
+      <ion-input type="text" name="descricao" placeholder="Informe o assunto da vistoria"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary" stacked>Vistoriador</ion-label>
+      <ion-input type="text" name="descricao" placeholder="Informe a matrícula do vistoriador"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary" stacked>Área Objeto</ion-label>
+      <ion-input type="text" name="descricao" placeholder="Informe a área objeto do imóvel"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary" stacked>Situação da Área</ion-label>
+      <ion-input type="text" name="descricao" placeholder="Informe a situação da área objeto"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary" stacked>RA</ion-label>
+      <ion-input type="text" name="descricao" placeholder="Informe a região administrativa do imóvel"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary" stacked>Relatório</ion-label>
+      <ion-textarea type="text" name="descricao" placeholder="Descreva o relatório da vistoria"></ion-textarea>
+    </ion-item>
+
+  </ion-list>
+
+</ion-content>
+
+<ion-footer *ngIf="syncStatus">
+  <ion-toolbar>
+    <p padding-left>4 imagens selecionadas</p>
+    <ion-buttons end padding-right>
+      <button ion-button color="primary">Visualizar</button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

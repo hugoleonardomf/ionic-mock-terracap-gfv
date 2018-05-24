@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController, AlertController } from 'ionic-angular';
 import { FiscalProvider, Pasta } from '../../providers/fiscal/fiscal';
 
 @IonicPage()
@@ -13,7 +13,7 @@ export class EditPastaPage {
   model: Pasta;
   key: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private fiscalProvider: FiscalProvider, private toast: ToastController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private fiscalProvider: FiscalProvider, private toast: ToastController, private alertCtrl: AlertController) {
     if (this.navParams.data.pasta && this.navParams.data.key) {
       this.model = this.navParams.data.pasta;
       this.key = this.navParams.data.key;
@@ -24,13 +24,17 @@ export class EditPastaPage {
   }
 
   save() {
+    if (this.model.descricao == null || this.model.descricao == '') {
+      this.showAlert('Aviso', 'É obrigatório informar uma descrição.');
+      return;
+    }
     this.savePasta()
       .then(() => {
-        this.toast.create({ message: 'Vistoria salva com sucesso.', duration: 3000, position: 'bottom' }).present();
+        this.toast.create({ message: 'Item salvo com sucesso.', duration: 3000, position: 'bottom' }).present();
         this.navCtrl.pop();
       })
       .catch(() => {
-        this.toast.create({ message: 'Erro ao salvar a vistoria.', duration: 3000, position: 'bottom' }).present();
+        this.toast.create({ message: 'Erro ao salvar o item.', duration: 3000, position: 'bottom' }).present();
       });
   }
 
@@ -40,6 +44,15 @@ export class EditPastaPage {
     } else {
       return this.fiscalProvider.insertPasta(this.model);
     }
+  }
+
+  showAlert(titulo: string, texto: string) {
+    let alert = this.alertCtrl.create({
+      title: titulo,
+      subTitle: texto,
+      buttons: ['OK']
+    });
+    alert.present();
   }
 
 }

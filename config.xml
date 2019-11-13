@@ -88,7 +88,6 @@
         <string>We want your location! Best regards NSA</string>
     </edit-config>
     <allow-navigation href="http://10.50.16.121:8100" />
-    <engine name="android" spec="^6.4.0" />
     <plugin name="cordova-plugin-camera" spec="^4.0.3" />
     <plugin name="cordova-plugin-file-transfer" spec="^1.7.1" />
     <plugin name="cordova-plugin-filepath" spec="^1.3.0" />
@@ -108,4 +107,5 @@
     <plugin name="cordova-plugin-nativegeocoder" spec="^3.1.1" />
     <plugin name="cordova-plugin-network-information" spec="^2.0.1" />
     <plugin name="cordova-plugin-dialogs" spec="^2.0.1" />
+    <engine name="android" spec="^7.1.4" />
 </widget>
